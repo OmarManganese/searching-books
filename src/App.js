@@ -18,9 +18,7 @@ function App() {
         <Route exact path="/about">
           <About />
         </Route>
-        <Route path="/book/:id">
-          <SingleBook />
-        </Route>
+        <Route exact path="/book/:id" component={SingleBook} />
         <Route path="*">
           <Error />
         </Route>

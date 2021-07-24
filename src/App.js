@@ -1,10 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import About from './pages/About';
+import SingleBook from './pages/SingleBook';
+import Error from './pages/Error';
 
 function App() {
-  return null;
+  return (
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route path="/book/:id">
+          <SingleBook />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>  
+    </Router>
+  );
 }
 
 export default App;

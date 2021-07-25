@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <nav>
       <div>
-        <Link>Searching Books</Link>
+        <Link to="/">Searching Books</Link>
       </div>
       <ul>
         <li>

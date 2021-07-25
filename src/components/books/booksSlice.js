@@ -4,6 +4,7 @@ import axios from 'axios';
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const initialState = {
+  searchTerm: "",
   books: {
     items: [
       {
@@ -60,3 +61,5 @@ const booksSlice = createSlice({
 export const { termSearched } = booksSlice.actions;
 
 export default booksSlice.reducer;
+
+export const selectSearchTerm = (state) => state.books.searchTerm;

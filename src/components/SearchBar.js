@@ -14,8 +14,10 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getBooks(searchTerm));
-    dispatch(termSearched(searchTerm));
+    if (searchTerm) {
+      dispatch(getBooks(searchTerm));
+      dispatch(termSearched(searchTerm));
+    }
   }
 
   return (

@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { termSearched, selectSearchTerm } from "../components/books/booksSlice";
 import { getBooks } from "../components/books/booksSlice";
 
 export default function SearchBar() {
-  const searchTerm = useSelector(selectSearchTerm);
+  const [searchTerm, setSearchTerm] = useState("")
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    dispatch(termSearched(e.target.value));
+    setSearchTerm(e.target.value);
   }
 
-  console.log(searchTerm);
-
-  // useEffect(() => dispatch(getBooks(searchTerm)), [searchTerm]);
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(getBooks(searchTerm));
+    dispatch(termSearched(searchTerm));
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type="text" onChange={handleChange} />
+      <button>Search</button>
     </form>
   );
 }

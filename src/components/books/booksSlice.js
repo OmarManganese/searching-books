@@ -46,5 +46,3 @@ const booksSlice = createSlice({
 export const { termSearched } = booksSlice.actions;
 
 export default booksSlice.reducer;
-
-export const selectSearchTerm = (state) => state.books.searchTerm;

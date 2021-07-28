@@ -1,21 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBCollapse,
+} from "mdb-react-ui-kit";
 
+export default function App() {
+  const [showBasic, setShowBasic] = useState(false);
 
-export default function NavBar() {
   return (
-    <nav>
-      <div>
-        <Link to="/">Searching Books</Link>
-      </div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </nav>
-  )
+    <MDBNavbar expand="lg" light bgColor="light">
+      <MDBContainer fluid>
+        <MDBNavbarBrand href="#">Searching Books</MDBNavbarBrand>
+
+        <MDBNavbarToggler
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={() => setShowBasic(!showBasic)}
+        >
+          <MDBIcon icon="bars" fas />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar show={showBasic} center>
+          <MDBNavbarNav fullWidth={false} className='mb-2 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current="page" href="/">
+                Home
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href="/about">About</MDBNavbarLink>
+            </MDBNavbarItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
+  );
 }

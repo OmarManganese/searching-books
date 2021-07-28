@@ -37,7 +37,7 @@ export default function SingleBook({ match }) {
     content = 
       <div>
         <h1>{title}</h1>
-        <img src={imageLinks.thumbnail} />
+        <img src={imageLinks.thumbnail} alt={title}/>
         <div>
           <h3>Language: {language}</h3>
           <h3>Authors: {authors}</h3>

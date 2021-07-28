@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { termSearched, selectSearchTerm } from "../components/books/booksSlice";
+import { termSearched } from "../components/books/booksSlice";
 import { getBooks } from "../components/books/booksSlice";
 
 export default function SearchBar() {

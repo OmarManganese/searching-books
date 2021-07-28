@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import _ from "lodash";
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 import Book from "./Book";
 
@@ -12,7 +13,7 @@ export default function BooksList() {
   const status = useSelector((state) => state.books.status);
 
   if (_.isEmpty(books) && !searchTerm) {
-    return <h2>Nulla</h2>;
+    return null;
   }
 
   if (status === "loading") {
@@ -25,16 +26,19 @@ export default function BooksList() {
 
   if (status === "succeeded") {
     return (
-      <div>
-        {books.map((book) => 
-          <Book 
-            key={book.id} 
-            id={book.id}
-            title={book.volumeInfo.title} 
-            img={book.volumeInfo.imageLinks.thumbnail} 
-          />          
-        )}
-      </div>
+      <MDBContainer breakpoint="md">
+        <MDBRow>
+          {books.map((book) => (
+            <MDBCol key={book.id} md="6" lg="4">
+              <Book
+                id={book.id}
+                title={book.volumeInfo.title}
+                img={book.volumeInfo.imageLinks.thumbnail}
+              />
+            </MDBCol>
+          ))}
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }

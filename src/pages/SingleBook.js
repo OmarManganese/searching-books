@@ -17,7 +17,7 @@ export default function SingleBook({ match }) {
   useEffect(() => {
     const url = `https://www.googleapis.com/books/v1/volumes/${id}`;
     getBook(url);
-  }, []);
+  }, [id]);
 
   
   let content;

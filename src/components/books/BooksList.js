@@ -25,7 +25,7 @@ export default function BooksList() {
   }
 
   if (status === "failed") {
-    content = <h2>Error</h2>;
+    content = <h2>An error has occurred.<br/> Please try typing something else </h2>;
   }
 
   if (status === "succeeded") {

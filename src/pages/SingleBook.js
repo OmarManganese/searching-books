@@ -54,7 +54,7 @@ export default function SingleBook({ match }) {
   }
 
   return (
-    <div className={styles["single-book-container"]}>
+    <div className="page-container">
       <Link to="/">
         <button className={styles["back-home-btn"]}>Back Home</button>
       </Link>

@@ -29,7 +29,7 @@ export default function App() {
         </MDBNavbarToggler>
 
         <MDBCollapse navbar show={showBasic} center>
-          <MDBNavbarNav fullWidth={false} className='mb-2 mb-lg-0'>
+          <MDBNavbarNav fullWidth={false} className="mb-2 mb-lg-0">
             <MDBNavbarItem>
               <MDBNavbarLink aria-current="page" href="/">
                 Home

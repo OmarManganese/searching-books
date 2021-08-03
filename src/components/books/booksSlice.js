@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -21,7 +21,7 @@ export const getBooks = createAsyncThunk(
 )
 
 const booksSlice = createSlice({
-  name: 'books',
+  name: "books",
   initialState,
   reducers: {
     termSearched(state, action) {

@@ -6,7 +6,7 @@ export default function About() {
     <div className="page-container">
       <h2>Start2impact - React project</h2>
       <p>
-        My name is Omar Manganese and I've created this web app as a project for
+        My name is Omar Manganese and I"ve created this web app as a project for
         the start2impact web development course to become a full-stack
         developer. <br />
         <br />

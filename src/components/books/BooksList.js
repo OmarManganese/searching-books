@@ -5,6 +5,8 @@ import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 import Book from "./Book";
 
+import styles from "./BookList.module.css";
+
 export default function BooksList() {
   const searchTerm = useSelector((state) => state.books.searchTerm);
   const books = useSelector((state) =>
@@ -12,33 +14,35 @@ export default function BooksList() {
   );
   const status = useSelector((state) => state.books.status);
 
+  let content;
+
   if (_.isEmpty(books) && !searchTerm) {
-    return null;
+    content = null;
   }
 
   if (status === "loading") {
-    return <h2>Loading...</h2>;
+    content = <h2>Loading...</h2>;
   }
 
   if (status === "failed") {
-    return <h2>Error</h2>;
+    content = <h2>Error</h2>;
   }
 
   if (status === "succeeded") {
-    return (
-      <MDBContainer breakpoint="md">
-        <MDBRow>
-          {books.map((book) => (
-            <MDBCol key={book.id} md="6" lg="4">
-              <Book
-                id={book.id}
-                title={book.volumeInfo.title}
-                img={book.volumeInfo.imageLinks.thumbnail}
-              />
-            </MDBCol>
-          ))}
-        </MDBRow>
-      </MDBContainer>
+    content = (
+      <MDBRow className="g-4">
+        {books.map((book) => (
+          <MDBCol key={book.id} md="6" lg="4">
+            <Book
+              id={book.id}
+              title={book.volumeInfo.title}
+              img={book.volumeInfo.imageLinks.thumbnail}
+            />
+          </MDBCol>
+        ))}
+      </MDBRow>
     );
   }
+
+  return <MDBContainer breakpoint="md" className={`d-flex justify-content-center ${styles["book-list-container"]}`}>{content}</MDBContainer>;
 }

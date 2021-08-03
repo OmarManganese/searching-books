@@ -17,7 +17,7 @@ export default function App() {
   return (
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
-        <MDBNavbarBrand href="#">Searching Books</MDBNavbarBrand>
+        <MDBNavbarBrand href="/">Searching Books</MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls="navbarSupportedContent"
@@ -31,7 +31,7 @@ export default function App() {
         <MDBCollapse navbar show={showBasic} center>
           <MDBNavbarNav fullWidth={false} className='mb-2 mb-lg-0'>
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="/">
+              <MDBNavbarLink aria-current="page" href="/">
                 Home
               </MDBNavbarLink>
             </MDBNavbarItem>

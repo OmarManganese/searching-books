@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import _ from "lodash";
 
+import styles from "./SingleBook.module.css";
+
 export default function SingleBook({ match }) {
   const id = match.params.id;
   const [book, setBook] = useState({});
@@ -37,24 +39,24 @@ export default function SingleBook({ match }) {
     content = 
       <div>
         <h1>{title}</h1>
-        <img src={imageLinks.thumbnail} alt={title}/>
+        <img src={imageLinks.thumbnail} alt={title} className={styles["single-book-img"]}/>
         <div>
-          <h3>Language: {language}</h3>
-          <h3>Authors: {authors}</h3>
-          <h3>Publisher: {publisher}</h3>
-          <h3>Publish Date: {publishedDate}</h3>
-          <h3>Pages: {pageCount}</h3>
+          <h4><strong>Language</strong>: {language}</h4>
+          <h4><strong>Authors</strong>: {authors}</h4>
+          <h4><strong>Publisher</strong>: {publisher}</h4>
+          <h4><strong>Publish Date</strong>: {publishedDate}</h4>
+          <h4><strong>Pages</strong>: {pageCount}</h4>
         </div>
         <div>
-          <p>{description}</p>
+          <p className={styles["content"]}>{description}</p>
         </div>
       </div>
   }
 
   return (
-    <div>
+    <div className={styles["single-book-container"]}>
       <Link to="/">
-        <button>Back Home</button>
+        <button className={styles["back-home-btn"]}>Back Home</button>
       </Link>
       {content}
     </div>

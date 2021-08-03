@@ -1,0 +1,18 @@
+.single-book-container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 0 10px;
+}
+
+.back-home-btn {
+  margin-bottom: 30px;
+}
+
+.single-book-img {
+  margin: 10px 0 20px 0;
+  height: 200px;
+}
+
+.content {
+  margin-top: 10px;
+}

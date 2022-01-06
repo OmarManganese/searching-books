@@ -36,10 +36,12 @@ export default function SingleBook({ match }) {
       language
     } = book.data.volumeInfo;
 
+    const img = _.get(imageLinks, "thumbnail", "/no-image.jpg");
+
     content = 
       <div>
         <h1>{title}</h1>
-        <img src={imageLinks.thumbnail} alt={title} className={styles["single-book-img"]}/>
+        <img src={img} alt={title} className={styles["single-book-img"]}/>
         <div>
           <h4><strong>Language</strong>: {language}</h4>
           <h4><strong>Authors</strong>: {authors}</h4>
